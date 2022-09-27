@@ -1,6 +1,6 @@
 package com.study.springsecurity_basic.config;
 
-import com.study.springsecurity_basic.auth.PrincipalOauth2UserService;
+import com.study.springsecurity_basic.oauth.PrincipalOauth2UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
-    public BCryptPasswordEncoder encodePwd() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

@@ -9,9 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class IndexController {
@@ -23,7 +21,7 @@ public class IndexController {
     private BCryptPasswordEncoder passwordEncoder;
 
     // localhost:8080/
-    @GetMapping(value = {"","/"})
+    @RequestMapping(value = {"","/"}, method = {RequestMethod.POST, RequestMethod.GET})
     public String index() {
         return "index";
     }

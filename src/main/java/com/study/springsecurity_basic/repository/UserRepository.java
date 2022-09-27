@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
     - CRUD 함수를 JpaRepo가 가지고 있음
  */
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     // findBy~
     // select * from user where ~ = ?
