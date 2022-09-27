@@ -25,8 +25,8 @@ spring:
       client:
         registration:
           google:
-            client_id: 845821405565-4jabnd0v5jm0fkgtqqglsenag4blvo55.apps.googleusercontent.com
-            client_secret: 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
+            client_id:
+            client_secret:
             scope:
               - email
               - profile
@@ -34,8 +34,8 @@ spring:
           naver:
             client_name: naver
             response_type: code
-            client_id: ld3MPRWFbcL22oM293rh
-            client_secret: U_xJmK5iuj
+            client_id:
+            client_secret:
             scope:
               - name
               - email
@@ -47,8 +47,8 @@ spring:
           kakao:
             client_name: kakao
             response_type: code
-            client_id: 7101c39c42261d94b4e511121d54e72a
-            client_secret: SNt9GWyHIBu1ZN8JeNJicmUP85ABpylM
+            client_id:
+            client_secret:
             scope:
               - profile_nickname
               - account_email
