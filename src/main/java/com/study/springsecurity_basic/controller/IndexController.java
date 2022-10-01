@@ -21,7 +21,7 @@ public class IndexController {
     private BCryptPasswordEncoder passwordEncoder;
 
     // localhost:8080/
-    @RequestMapping(value = {"","/"}, method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = {"","/", "/index"}, method = {RequestMethod.POST, RequestMethod.GET})
     public String index() {
         return "index";
     }
