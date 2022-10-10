@@ -50,22 +50,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .alwaysRemember(false)
                 .userDetailsService(PrincipalDetailsService)
                 .tokenRepository(tokenRepository)
+
             .and()
                 .formLogin()
-                .loginPage("/loginForm")
+                .loginPage("/login")
 //                .usernameParameter("userId") // html page name -> userId
                 .loginProcessingUrl("/login") // login주소 호출 -> security가 대신 로그인 진행
-                .defaultSuccessUrl("/")
-                .failureForwardUrl("/login")
+                .defaultSuccessUrl("/index", true)
+                .failureForwardUrl("/")
             .and()
                 .logout()
-//                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
             .and()
                 .oauth2Login()
-                .loginPage("/loginForm") // google oauth : 코드가 아니라, access token+user info 받음
+//                .loginPage("/login") // google oauth : 코드가 아니라, access token+user info 받음
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
-
-
     }
 }

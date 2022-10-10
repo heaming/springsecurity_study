@@ -42,11 +42,6 @@ public class IndexController {
         return "manager";
     }
 
-    @GetMapping("/loginForm")
-    public String loginForm() {
-        return "loginForm";
-    }
-
     @GetMapping("/joinForm")
     public String joinForm() {
         return "joinForm";
@@ -60,7 +55,7 @@ public class IndexController {
         user.setPassword(encPassword);
         userRepository.save(user);
 
-        return "redirect:/loginForm";
+        return "redirect:/";
     }
 
     @Secured("ROLE_ADMIN")

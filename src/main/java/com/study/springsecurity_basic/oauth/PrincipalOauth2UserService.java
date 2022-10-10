@@ -3,8 +3,8 @@ package com.study.springsecurity_basic.oauth;
 import com.study.springsecurity_basic.auth.PrincipalDetails;
 import com.study.springsecurity_basic.model.User;
 import com.study.springsecurity_basic.repository.UserRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
-    private static final Logger LOGGER = LogManager.getLogger(PrincipalOauth2UserService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrincipalOauth2UserService.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -41,7 +41,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         } else if(userRequest.getClientRegistration().getRegistrationId().equals("naver")) {
             oAuth2UserInfo = new NaverUserInfo((Map)oAuth2User.getAttributes().get("response"));
         } else if(userRequest.getClientRegistration().getRegistrationId().equals("kakao")) {
-            LOGGER.info(oAuth2User.getAttributes());
+            LOGGER.info(oAuth2User.getAttributes().toString());
             oAuth2UserInfo = new KakaoUserInfo((Map)oAuth2User.getAttributes());
         } else {
             LOGGER.info("[oauth.loadUser()]NON-SERVICE : We provide only google, naver login service");

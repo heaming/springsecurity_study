@@ -1,6 +1,9 @@
 package com.study.springsecurity_basic.auth;
 
 import com.study.springsecurity_basic.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -21,11 +24,14 @@ success : security session을 만듦
  */
 public class PrincipalDetails implements UserDetails, OAuth2User {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(PrincipalDetails.class);
+
     private User user; // composition
     private Map<String, Object> attributes;
 
     // 일반 로그인 : UserDetails
     public PrincipalDetails(User user) {
+        LOGGER.info(user.toString());
         this.user = user;
     }
 
